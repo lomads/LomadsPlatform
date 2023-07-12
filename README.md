@@ -433,3 +433,41 @@ Similarly Trello boards and cards can be pulled using handleTrello function and 
 
         const handleTrello = (selectedValue: any)
         const handleSyncServer = async ()
+
+## Token Gating
+
+Users can use the Soul Bound Token to token gate Discord and Notion. This is done through the project page while adding project resources. 
+
+_src/modals/Project/ResourceModal/index.tsx_ file is used to set the _accessControl_ flag to True or False.
+
+        DAO?.sbt &&
+        <Box sx={{ width: '100%' }} display={"flex"}>
+                {
+                        (link && link.indexOf('notion.') > -1 && _get(DAO, 'sbt.contactDetail', '').indexOf('email') > -1) || (link && link.indexOf('discord.') > -1 && _get(DAO, 'sbt.contactDetail', '').indexOf('discord') > -1)
+                         ?
+                        <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
+                        <Switch checkedSVG="checkmark" onChange={() => setAccessControl(prev => !prev)} />
+        </Box>
+        :
+        null
+                }
+
+Once the _accessControl_ is set, _unlock_ function in the _src/components/ProjectLinkCard/index.tsx_ file is used to check and grant access to users
+
+        const unlock = useCallback(async (link: any, update = true) => {
+                //if (unlockLoading) return;
+                setUnlockLoading(link?.id)
+                console.log(_uniqBy(Project?.members, '_id'))
+                let memberExists = _find(_uniqBy(Project?.members, '_id'), (member:any) => member?.wallet?.toLowerCase() === account?.toLowerCase())
+                console.log("memberExists", memberExists)
+                if (!memberExists)
+                    return setUnlockLoading(null);
+                if (link.link.indexOf('discord.') > -1) {
+                    try {
+                            const balanceStats: any = await balanceOf();
+        ....
+        ....
+        ....
+        ....
+        ....
+        }, [ unlockLoading, Project, account, authorization])
