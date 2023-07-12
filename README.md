@@ -128,9 +128,8 @@ Users can create Projects and Tasks using Lomads platform. There are two folders
 The main components of the project are:
 
 **Create Project**
-_/src/pages/Projects/CreateProject/index.tsx_
 
-The main function is _handleCreateProject_ which gathers all the info required for the project creation and dispatches it to the backend using _createProjectAction_
+The _/src/pages/Projects/CreateProject/index.tsx_ file is used for the create porject functionality. The main function is _handleCreateProject_ which gathers all the info required for the project creation and dispatches it to the backend using _createProjectAction_
 
         const handleCreateProject = () => {
         let project: any = {};
@@ -180,7 +179,7 @@ Same named function exists in other modals for editing
     
 To review KRA and submit src/modals/Project/KraReviewModal/index.tsx file is used. 
     
-handleSubmit function is used to update the KRA values
+_handleSubmit_ function is used to update the KRA values
 
         const handleSubmit = () => {
                 const kra = { ...Project.kra };
@@ -221,7 +220,7 @@ The code for the same can be found here: _src/pages/AttachSafe/New/index.tsx_
 
 SafeFactory is used within the deployNewSafe function to deploy a new safe
 
-import { SafeFactory, SafeAccountConfig } from "@gnosis.pm/safe-core-sdk";
+        import { SafeFactory, SafeAccountConfig } from "@gnosis.pm/safe-core-sdk";
 
         const deployNewSafe = async () => {
         		if (!chainId) return;
@@ -297,7 +296,7 @@ SBT or Pass Token can be created by deploying the smart contract.
 
 ### Create SBT
 
-In the file src/pages/CreatePassToken/index.tsx, the following function is used to gather all the necessary info and uses the src/pages/useContractDeployer hook to deploy the contract
+In the file _src/pages/CreatePassToken/index.tsx_, the following function is used to gather all the necessary info and uses the _src/pages/useContractDeployer_ hook to deploy the contract
 
         import useContractDeployer, { SBTParams } from "hooks/useContractDeployer"
         ...
@@ -329,7 +328,7 @@ In the file src/pages/CreatePassToken/index.tsx, the following function is used 
 
 ### Mint SBT
 
-In the file src/pages/Mint/index.tsx, the following function is used to gather all the necessary info and uses the src/pages/useMintSBT hook to mint the SBT
+In the file _src/pages/Mint/index.tsx_, the following function is used to gather all the necessary info and uses the _src/pages/useMintSBT_ hook to mint the SBT
 
         import useMintSBT from "hooks/useMintSBT.v2"
         ...
