@@ -1,4 +1,3 @@
-# LomadsPlatform
 
 # Clone and run the project
 
