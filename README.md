@@ -45,20 +45,19 @@ The figure shows the folder structure of the code. We will detail out some of th
 
 
 ### Assets Folder
-it contains assets of our project i.e. images and styling files.
+It contains assets of the project i.e. images and styling files.
 
 ### Routes Folder
 
-This folder consists of all routes of the application. It consists of private, protected, and all types of routes. Here we can even call our sub-route.
+This folder consists of all routes of the application.
 
 ### Layouts Folder
 
-it contains layouts available to the whole project like header, footer, etc. The following layouts are present:
-
+This folder contains layouts available to the whole project like header, footer, etc.
 
 ### Components Folder
 
-This folder is where you store reusable UI components that can be used across multiple pages or other components.
+This folder is where we store reusable UI components that can be used across multiple pages or other components.
 
 ### Pages Folder
 
@@ -298,7 +297,7 @@ SBT or Pass Token can be created by deploying the smart contract.
 
 ### Create SBT
 
-In the file *src/pages/CreatePassToken/index.tsx,* the following function is used to gather all the necessary info and uses the *src/pages/*useContractDeployer hook to deploy the contract
+In the file src/pages/CreatePassToken/index.tsx, the following function is used to gather all the necessary info and uses the src/pages/useContractDeployer hook to deploy the contract
 
         import useContractDeployer, { SBTParams } from "hooks/useContractDeployer"
         ...
@@ -330,7 +329,7 @@ In the file *src/pages/CreatePassToken/index.tsx,* the following function is use
 
 ### Mint SBT
 
-In the file *src/pages/Mint/index.tsx,* the following function is used to gather all the necessary info and uses the *src/pages/*useMintSBT hook to mint the SBT
+In the file src/pages/Mint/index.tsx, the following function is used to gather all the necessary info and uses the src/pages/useMintSBT hook to mint the SBT
 
         import useMintSBT from "hooks/useMintSBT.v2"
         ...
